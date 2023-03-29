@@ -12,6 +12,8 @@ import { ReactLogo } from './src/pages/ReactLogo';
 import { SkiaLogo } from './src/pages/SkiaLogo';
 import Card from './src/pages/Card';
 import { PathGradient } from './src/pages/PathGradient';
+import TelegramLock from './src/pages/TelegramLock';
+import SkiaShader from './src/pages/SkiaShader';
 
 const Stack = createNativeStackNavigator();
 function App() {
@@ -28,6 +30,8 @@ function App() {
           <Stack.Screen name="SkiaLogo" component={SkiaLogo} />
           <Stack.Screen name="Card" component={Card} />
           <Stack.Screen name="PathGradient" component={PathGradient} />
+          <Stack.Screen name="TelegramLock" component={TelegramLock} />
+          <Stack.Screen name="SkiaShader" component={SkiaShader} />
         </Stack.Navigator>
       </NavigationContainer>
     </GestureHandlerRootView>

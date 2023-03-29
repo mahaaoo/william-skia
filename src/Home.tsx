@@ -30,6 +30,12 @@ const TabOneScreen: React.FC<{}> = (props: any) => {
       <ListRow title={"PathGradient"} onPress={() => {
         props.navigation.navigate('PathGradient');
       }} />
+      <ListRow title={"TelegramLock"} onPress={() => {
+        props.navigation.navigate('TelegramLock');
+      }} />
+      <ListRow title={"SkiaShader"} onPress={() => {
+        props.navigation.navigate('SkiaShader');
+      }} />
     </ScrollView>
   );
 }
