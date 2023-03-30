@@ -15,6 +15,7 @@ import { PathGradient } from './src/pages/PathGradient';
 import TelegramLock from './src/pages/TelegramLock';
 import SkiaShader from './src/pages/SkiaShader';
 import ShaderUniforms from './src/pages/Shader/Uniforms';
+import Plot from './src/pages/Shader/Plot';
 
 const Stack = createNativeStackNavigator();
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Stack.Screen name="TelegramLock" component={TelegramLock} />
           <Stack.Screen name="SkiaShader" component={SkiaShader} />
           <Stack.Screen name="ShaderUniforms" component={ShaderUniforms} />
+          <Stack.Screen name="Plot" component={Plot} />
         </Stack.Navigator>
       </NavigationContainer>
     </GestureHandlerRootView>
