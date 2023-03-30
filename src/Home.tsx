@@ -36,6 +36,9 @@ const TabOneScreen: React.FC<{}> = (props: any) => {
       <ListRow title={"SkiaShader"} onPress={() => {
         props.navigation.navigate('SkiaShader');
       }} />
+      <ListRow title={"ShaderUniforms"} onPress={() => {
+        props.navigation.navigate('ShaderUniforms');
+      }} />
     </ScrollView>
   );
 }

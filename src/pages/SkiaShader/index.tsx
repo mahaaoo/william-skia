@@ -4,42 +4,6 @@ import { Canvas, Skia, Shader, Fill, vec, useTouchHandler, useValue, useComputed
 
 interface SkiaShaderProps {}
 
-// const source = Skia.RuntimeEffect.Make(`
-// uniform float4 colors[4];
-// uniform float2 center;
-
-// struct Paint {
-//   float4 color;
-//   bool stroke;
-//   float strokeWidth;
-// };
-
-// float sdCircle(vec2 xy, float radius) {
-//   return length(xy) - radius;
-// }
-
-// float4 draw(float4 color, float d, Paint paint) {
-//   bool isFill = !paint.stroke && d < 0;
-//   bool isStroke = paint.stroke && abs(d) < paint.strokeWidth/2;
-//   if (isFill || isStroke) {
-//     return paint.color;
-//   }
-//   return color;
-// }
-
-// float4 drawCircle(float4 color, float2 pos, float radius, Paint paint) {
-//   float d = sdCircle(p, radius);
-//   return draw(color, d, paint);
-// }
-
-// vec4 main(vec2 xy) {
-//   float strokeWidth = 20;
-//   float radius = center.x - strokeWidth/2;
-//   float4 color = colors[1];
-//   color = drawCircle(color, xy-center, radius, Paint(colors[2], false, 0));
-//   return color;
-// }`)!;
-
 const source = Skia.RuntimeEffect.Make(`
 uniform float4 colors[4];
 uniform float2 center;
@@ -114,7 +78,7 @@ const SkiaShader: React.FC<SkiaShaderProps> = (props) => {
   const { width, height } = useWindowDimensions();
   const center = vec(width / 2, height / 2);
   const clock = useClockValue();
-  const pointer = useValue(vec(0, 0));
+  const pointer = useValue(center);
 
   const onTouch = useTouchHandler({
     onActive: (e) => {
