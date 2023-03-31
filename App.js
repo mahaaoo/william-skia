@@ -16,6 +16,8 @@ import TelegramLock from './src/pages/TelegramLock';
 import SkiaShader from './src/pages/SkiaShader';
 import ShaderUniforms from './src/pages/Shader/Uniforms';
 import Plot from './src/pages/Shader/Plot';
+import Color from './src/pages/Shader/Color';
+import Shape from './src/pages/Shader/Shape';
 
 const Stack = createNativeStackNavigator();
 function App() {
@@ -36,6 +38,8 @@ function App() {
           <Stack.Screen name="SkiaShader" component={SkiaShader} />
           <Stack.Screen name="ShaderUniforms" component={ShaderUniforms} />
           <Stack.Screen name="Plot" component={Plot} />
+          <Stack.Screen name="Color" component={Color} />
+          <Stack.Screen name="Shape" component={Shape} />
         </Stack.Navigator>
       </NavigationContainer>
     </GestureHandlerRootView>
