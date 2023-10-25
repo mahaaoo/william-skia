@@ -69,38 +69,38 @@ basePaint.setStrokeJoin(StrokeJoin.Round);
 basePaint.setStrokeCap(StrokeCap.Round);
 
 const tolerance = StyleSheet.hairlineWidth;
-const tessellate = (geo: PathGeometry, t0: number, t1: number): Line[] => {
-  const p0 = geo.getPointAtLength(t0);
-  const p1 = geo.getPointAtLength(t1);
-  const t05 = (t0 + t1) / 2;
-  const p05 = getPointAtLength(0.5 * dist(p0, p1), p0, p1);
-  const c05 = geo.getPointAtLength(t05);
-  const d = dist(p05, c05);
-  if (d > tolerance || dist(p0, p1) > 40) {
-    return [...tessellate(geo, t0, t05), ...tessellate(geo, t05, t1)];
-  } else {
-    const paint = basePaint.copy();
-    const startColor = interpolateColors(
-      t0 / geo.getTotalLength(),
-      inputRange,
-      colors
-    );
-    const endColor = interpolateColors(
-      t1 / geo.getTotalLength(),
-      inputRange,
-      colors
-    );
-    const gradient = Skia.Shader.MakeLinearGradient(
-      p0,
-      p1,
-      [startColor, endColor],
-      null,
-      TileMode.Clamp
-    );
-    paint.setShader(gradient);
-    return [{ p1: p0, p2: p1, length: t0, paint }];
-  }
-};
+// const tessellate = (geo: PathGeometry, t0: number, t1: number): Line[] => {
+//   const p0 = geo.getPointAtLength(t0);
+//   const p1 = geo.getPointAtLength(t1);
+//   const t05 = (t0 + t1) / 2;
+//   const p05 = getPointAtLength(0.5 * dist(p0, p1), p0, p1);
+//   const c05 = geo.getPointAtLength(t05);
+//   const d = dist(p05, c05);
+//   if (d > tolerance || dist(p0, p1) > 40) {
+//     return [...tessellate(geo, t0, t05), ...tessellate(geo, t05, t1)];
+//   } else {
+//     const paint = basePaint.copy();
+//     const startColor = interpolateColors(
+//       t0 / geo.getTotalLength(),
+//       inputRange,
+//       colors
+//     );
+//     const endColor = interpolateColors(
+//       t1 / geo.getTotalLength(),
+//       inputRange,
+//       colors
+//     );
+//     const gradient = Skia.Shader.MakeLinearGradient(
+//       p0,
+//       p1,
+//       [startColor, endColor],
+//       null,
+//       TileMode.Clamp
+//     );
+//     paint.setShader(gradient);
+//     return [{ p1: p0, p2: p1, length: t0, paint }];
+//   }
+// };
 
 export const prepare = (svg: string) => {
   const path = Skia.Path.MakeFromSVGString(svg)!;
@@ -109,8 +109,8 @@ export const prepare = (svg: string) => {
   path.transform(m3);
   const geo = new PathGeometry(path);
   const totalLength = geo.getTotalLength();
-  const lines = tessellate(geo, 0, totalLength);
-  return { path, totalLength, lines };
+  // const lines = tessellate(geo, 0, totalLength);
+  return { path, totalLength };
 };
 
 export interface Line {
