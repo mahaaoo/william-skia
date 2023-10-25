@@ -19,6 +19,7 @@ import Plot from './src/pages/Shader/Plot';
 import Color from './src/pages/Shader/Color';
 import Shape from './src/pages/Shader/Shape';
 import Transitions from './src/pages/Transitions';
+import DarkMode from './src/pages/DarkMode';
 
 const Stack = createNativeStackNavigator();
 function App() {
@@ -42,6 +43,7 @@ function App() {
           <Stack.Screen name="Color" component={Color} />
           <Stack.Screen name="Shape" component={Shape} />
           <Stack.Screen name="Transitions" component={Transitions} />
+          <Stack.Screen options={{ header: () => null }} name="DarkMode" component={DarkMode} />
         </Stack.Navigator>
       </NavigationContainer>
     </GestureHandlerRootView>
