@@ -54,6 +54,9 @@ const TabOneScreen: React.FC<{}> = (props: any) => {
       <ListRow title={"DarkMode"} onPress={() => {
         props.navigation.navigate('DarkMode');
       }} />
+      <ListRow title={"Rings"} onPress={() => {
+        props.navigation.navigate('Rings');
+      }} />
     </ScrollView>
   );
 }
